@@ -1,14 +1,13 @@
 <!doctype html>
 <html lang="en">
-
   <head> 
-  {%load staticfiles%}
+   {%load staticfiles%}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Luis Aloeasy</title>
+    <title> {{blog.title}} </title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
 
@@ -46,55 +45,29 @@
      <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                 <a class="navbar-brand" href="{% url 'home' %}">Luis Aloisi</a>
+                 <a class="navbar-brand" href="{% url 'home'%}">Luis Aloisi</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav ml-auto" >
-                                <a class="nav-item nav-link" href="http://instagram.com/luisaloeasy">Instagram </a>
+                                <a class="nav-item nav-link" href= "http://instagram.com/luisaloeasy">Instagram </a>
                                 <a class="nav-item nav-link" href="{% static 'TAREACALCULO.pdf'%}">Resume</a>
-                                <a class="nav-item nav-link" href="{% url 'allblogs'%}">Blog</a>
+                                <a class="nav-item nav-link active" href="{% url 'allblogs'%}">Blog</a>
                             </div>
                         </div>
             </nav>
         </header>
 
 <main role="main">
+    <div class= "container"> 
 
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1>Hi, I'm Luis Aloisi</h1>
-      <p class="lead text-muted">Welcome to my new WebSite</p>
-      <p>
-        <a href="mailto:luisaloeasy@gmail.com" class="btn btn-primary my-2">Email Me</a>
-      </p>
-      <img class="rounded-circle" src="{% static 'profile.jpg' %}" height="300"/>
+     <h1 class="text-center pt-3">{{ blog.title }}</h1>
+     <p class="text-center">  {{blog.pub_date}}   </p> 
+     <img class="img-fluid" src="{{blog.image.url}}"/>
+      <br/>
+        <p>{{ blog.body}}</p>
     </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-
-
-      {% for job in jobs.all %}
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class= "card-img-top" src="{{job.image.url}}" />
-            <div class="card-body">
-              <p class="card-text"> {{job.summary}}</p>
-            </div>
-          </div>
-        </div>
-        
-      {% endfor %}
-      </div>
-    </div>
-  </div>
-
 </main>
 
 <footer class="text-muted">
